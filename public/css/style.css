@@ -1,0 +1,204 @@
+.grid{
+  display: grid;
+  justify-items: center;
+  font-family: sans-serif;
+}
+
+.grid>div{
+  min-height: 5rem;
+}
+
+.hidden{
+  display: none;
+}
+
+.letter{
+  margin: 0;
+}
+
+#search_page{
+  background-color: #99b1dd;
+  padding-top: 1rem;
+}
+
+#background{
+  border-bottom: 1rem solid green;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+#player{
+  height: 5rem;
+  width: 5rem;
+}
+
+#keyboard{
+  grid-template-columns: 33% auto 33%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* subject box */
+#keyboard>section{
+  font-size: 3rem;
+  display: grid;
+  text-align: center;
+  width: 18rem;
+  height: 8rem;
+  border: 9px solid #c75b2c;
+  background-color: #f8a137;
+  color: #c75b2c;
+  border-color: #c75b2c black black #c75b2c;
+  text-shadow: 3px 4px black;
+  padding: 1px;
+  align-self: center;
+}
+
+/* middle box */
+#keyboard>section:nth-child(2){
+  font-size: 4rem;
+  width: 24rem;
+  height: 10rem;
+}
+
+/* text inside box */
+#keyboard>section>p{
+  margin: 0;
+  align-self: center;
+}
+
+/* images of books */
+#keyboard>a{
+  display: grid;
+  font-size: 3rem;
+  width: 6rem;
+  height: 8rem;
+  padding: 1px;
+  align-self: center;
+  justify-items: center;
+}
+
+/* middel books */
+#keyboard>a:nth-child(2){
+  font-size: 4rem;
+  width: 7.5rem;
+  height: 10rem;
+}
+
+/* text inside box */
+#keyboard>section>p{
+  margin: 0;
+  align-self: center;
+}
+
+/* images of books */
+#keyboard > .no-img{
+  border: 6px groove #ffefb8;
+  font-size: 0.9rem;
+  background-color: #fe3838;
+  color: #ffd5d5;
+  text-align: center;
+}
+
+#keyboard > .no-img:nth-child(2){
+  font-size: 1.1rem;
+  width: 7.5rem;
+  height: 10rem;
+}
+
+#keyboard img{
+  height: 100%;
+}
+
+/* book details */
+#keyboard>div{
+  font-size: 1.9rem;
+  display: grid;
+  text-align: center;
+  width: 18rem;
+  height: 8rem;
+  border: 9px solid #c75b2c;
+  background-color: #f8a137;
+  color: #c75b2c;
+  border-color: #c75b2c black black #c75b2c;
+  text-shadow: 1px 2px black;
+  padding: 1px;
+  align-self: center;
+}
+
+/* middel bookdetails */
+#keyboard>div:nth-child(2){
+  font-size: 2.5rem;
+  width: 24rem;
+  height: 10rem;
+  text-shadow: 2px 3px black;
+}
+
+/* text inside book details */
+#keyboard>div>p{
+  margin: 0;
+  align-self: center;
+}
+
+#results{
+  background: white;
+  width: 100%;
+  grid-template-columns: auto auto auto;
+}
+
+#messages{
+  width: 100%;
+  text-align: left;
+  background-color: white;
+}
+
+/* Animations */
+
+.marco-jump{
+  animation-name: marco-jump;
+  animation-duration: 2s;
+}
+
+@keyframes marco-jump {
+  0%   {margin-top: 0;}
+  50%  {margin-top: -5rem;}
+  100%  {margin-top: 0;}
+}
+
+/* IMAGE FLIPPER */
+/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+#player-flip-box {
+  background-color: transparent;
+  width: 5rem;
+  height: 5rem;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-box-back {
+  transform: rotateY(180deg);
+}

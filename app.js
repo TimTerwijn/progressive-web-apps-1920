@@ -17,4 +17,9 @@ app.get('/', function(req, res) {
   res.render('test');
 });
 
+// Get our route file
+var router = require('./routes/router');
+// Tell express to use our posts.js file for /posts routes
+app.use('/level', router);
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
