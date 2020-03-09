@@ -8,7 +8,7 @@ const router = express.Router();
 
 // chose a subject
 router.get('/', function(req, res) {
-	res.send('subjects');
+	res.render('game');
 });
 
 //user selected subject
