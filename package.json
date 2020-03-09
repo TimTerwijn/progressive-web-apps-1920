@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/TimTerwijn/progressive-web-apps-1920#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
