@@ -1,0 +1,22 @@
+{
+  "name": "progressive-web-apps",
+  "version": "1.0.0",
+  "description": "In this course we will convert the client side web application previously made at the OBA into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimTerwijn/progressive-web-apps-1920.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimTerwijn/progressive-web-apps-1920/issues"
+  },
+  "homepage": "https://github.com/TimTerwijn/progressive-web-apps-1920#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
