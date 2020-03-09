@@ -12,14 +12,14 @@ app.set('views', 'views');
 // Sending something (responding) ends the response cycle
 app.use(express.static('public'));
 
+// Get our route file
+const subject = require('./routes/subject');
+// Tell express to use our posts.js file for /posts routes
+app.use('/subjects', subject);
+
 /* GET home page. */
 app.get('/', function(req, res) {
-  res.render('test');
+  res.redirect('/subjects');
 });
-
-// Get our route file
-var router = require('./routes/router');
-// Tell express to use our posts.js file for /posts routes
-app.use('/level', router);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
