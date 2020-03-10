@@ -32,14 +32,14 @@
   width: 5rem;
 }
 
-#keyboard{
+#results{
   grid-template-columns: 33% auto 33%;
   justify-content: space-between;
   width: 100%;
 }
 
 /* subject box */
-#keyboard>section{
+#results>section{
   font-size: 3rem;
   display: grid;
   text-align: center;
@@ -55,20 +55,25 @@
 }
 
 /* middle box */
-#keyboard>section:nth-child(2){
+#results>section:nth-child(2){
   font-size: 4rem;
   width: 24rem;
   height: 10rem;
 }
 
+/* show only first 3 items */
+#results>section:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)){
+  display: none;
+}
+
 /* text inside box */
-#keyboard>section>p{
+#results>section>p{
   margin: 0;
   align-self: center;
 }
 
 /* images of books */
-#keyboard>a{
+#results>a{
   display: grid;
   font-size: 3rem;
   width: 6rem;
@@ -79,20 +84,20 @@
 }
 
 /* middel books */
-#keyboard>a:nth-child(2){
+#results>a:nth-child(2){
   font-size: 4rem;
   width: 7.5rem;
   height: 10rem;
 }
 
 /* text inside box */
-#keyboard>section>p{
+#results>section>p{
   margin: 0;
   align-self: center;
 }
 
 /* images of books */
-#keyboard > .no-img{
+#results > .no-img{
   border: 6px groove #ffefb8;
   font-size: 0.9rem;
   background-color: #fe3838;
@@ -100,18 +105,18 @@
   text-align: center;
 }
 
-#keyboard > .no-img:nth-child(2){
+#results > .no-img:nth-child(2){
   font-size: 1.1rem;
   width: 7.5rem;
   height: 10rem;
 }
 
-#keyboard img{
+#results img{
   height: 100%;
 }
 
 /* book details */
-#keyboard>div{
+#results>div{
   font-size: 1.9rem;
   display: grid;
   text-align: center;
@@ -127,7 +132,7 @@
 }
 
 /* middel bookdetails */
-#keyboard>div:nth-child(2){
+#results>div:nth-child(2){
   font-size: 2.5rem;
   width: 24rem;
   height: 10rem;
@@ -135,15 +140,9 @@
 }
 
 /* text inside book details */
-#keyboard>div>p{
+#results>div>p{
   margin: 0;
   align-self: center;
-}
-
-#results{
-  background: white;
-  width: 100%;
-  grid-template-columns: auto auto auto;
 }
 
 #messages{

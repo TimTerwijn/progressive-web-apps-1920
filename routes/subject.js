@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 	const subject = require("../modules/Subject.js");
 	const subjectNames = subject.getSubjectNames();
 	
-	res.render('game', {"names": subjectNames});
+	res.render('game', {"results": subjectNames});
 });
 
 //user selected subject

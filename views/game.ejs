@@ -8,11 +8,11 @@
   <body>
     <div id="search_page">
       <div class="grid page">
-        <div id="keyboard" class="grid">
+        <div id="results" class="grid">
             <!--add data here-->
-            <% for(let i = 0; i < 3; i++){ %>
+            <% for(let i = 0; i < results.length; i++){ %>
               <section>
-                <p><%= names[i] %></p>
+                <p><%= results[i] %></p>
               </section>
             <% } %>
         </div>

@@ -16,7 +16,10 @@ export function walkLeft(){
       //animate Marco
       flipBox.classList.add("flip-box");
   }else{
-    //make server call to move array to left in server    
+    //move div to left
+    const parent = document.getElementById("results");
+    const child = parent.lastElementChild;
+    parent.prepend(child); 
   }
 }
 
@@ -35,7 +38,10 @@ export function walkRight(){
     //animate Marco to look right
     flipBox.classList.remove("flip-box");
   }else{
-    //make server call to move array to right in server    
+    //move div to right
+    const parent = document.getElementById("results");
+    const child = parent.firstElementChild;
+    parent.append(child);
   }
 }
 
@@ -70,7 +76,7 @@ export function playerJump(){
         flipBox.classList.remove("marco-jump");
       })  
     }    
-     
+
     //call to server to render
   }    
 }
