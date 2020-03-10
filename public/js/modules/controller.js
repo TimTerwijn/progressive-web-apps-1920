@@ -12,7 +12,7 @@ export function checkKey(e) {
     }
     else if (e.keyCode == '39') {// right arrow
       app.onRightKey();
-    }else if (e.keyCode == '8') {// right arrow
+    }else if (e.keyCode == '8') {// backspace key
       app.onBackspaceKey();
     }
 }
