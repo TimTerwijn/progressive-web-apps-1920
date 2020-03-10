@@ -13,7 +13,7 @@ app.set('views', 'views');
 app.use(express.static('public'));
 
 // Get our route file
-const subject = require('./routes/subject');
+const subject = require('./routes/subject.js');
 // Tell express to use our posts.js file for /posts routes
 app.use('/subjects', subject);
 

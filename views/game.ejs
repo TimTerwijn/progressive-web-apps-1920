@@ -8,7 +8,14 @@
   <body>
     <div id="search_page">
       <div class="grid page">
-        <div id="keyboard" class="grid"></div>
+        <div id="keyboard" class="grid">
+            <!--add data here-->
+            <% for(let i = 0; i < 3; i++){ %>
+              <section>
+                <p><%= subjects[i].name %></p>
+              </section>
+            <% } %>
+        </div>
         <div id="background" class="grid"><!-- player  -->
           <div id="player-flip-box">
             <div class="flip-box-inner">
