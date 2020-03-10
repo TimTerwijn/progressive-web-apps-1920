@@ -9,9 +9,9 @@ const router = express.Router();
 // chose a subject
 router.get('/', function(req, res) {
 	const subject = require("../modules/Subject.js");
-	const subjects = subject.getSubjects();
+	const subjectNames = subject.getSubjectNames();
 	
-	res.render('game', {"subjects": subjects});
+	res.render('game', {"names": subjectNames});
 });
 
 //user selected subject

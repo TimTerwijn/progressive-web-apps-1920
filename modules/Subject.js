@@ -30,8 +30,16 @@ const subjects = [
     {"name" : "Stoer", "value" : stoer},
 ];
 
+
+
 module.exports = {
-    getSubjects(){
-        return subjects;
+    getSubjectNames(){
+        const subjectNames = [];
+
+        subjects.forEach(subject => {
+            subjectNames.push(subject.name);
+        });
+        
+        return subjectNames;
     }
 };
