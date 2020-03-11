@@ -7,6 +7,9 @@ app.set('view engine', 'ejs');
 // Tell the views engine/ejs where the template files are stored (Settingname, value)
 app.set('views', 'views');
 
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
+
 // Tell express to use a 'static' folder
 // If the url matches a file it will send that file
 // Sending something (responding) ends the response cycle

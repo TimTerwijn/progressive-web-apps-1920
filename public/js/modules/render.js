@@ -1,4 +1,5 @@
 import * as vars from "./vars.js";
+import * as server from "./server.js";
 
 export function walkLeft(){
   const flipBox = document.getElementById("player-flip-box");  
@@ -45,7 +46,7 @@ export function walkRight(){
   }
 }
 
-export function playerJump(){
+export async function playerJump(){
   const flipBox = document.getElementById("player-flip-box");
 
   //stop if Marco is already jumping
@@ -72,11 +73,19 @@ export function playerJump(){
 
       //wait for animation to compleet, then remove class
       const promise = vars.sleep(2000);
-      promise.then(function(){
+      promise.then((result) => {
+        //stop animation
         flipBox.classList.remove("marco-jump");
-      })  
-    }    
 
-    //call to server to render
+        //get selected item name
+        const resultsElement = document.getElementById("results");
+        const selectedElement = resultsElement.children[1];
+        const selectedName = selectedElement.firstElementChild.innerText;
+        const url = "/subjects/" + selectedName;
+
+        //do callback to server
+        server.get(url);
+      });  
+    }  
   }    
 }

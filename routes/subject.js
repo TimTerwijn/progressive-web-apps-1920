@@ -15,8 +15,9 @@ router.get('/', function(req, res) {
 });
 
 //user selected subject
-router.get('/sub_subjects', function(req, res) {
-	res.send('sub_subjects');
+router.get('/:id', function(req, res) {
+	const id = req.params.id;
+	res.send("id: " + id);
 });
 
 //user selected sub_subject
