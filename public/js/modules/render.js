@@ -84,8 +84,14 @@ export async function playerJump(){
         const url = "/subjects/" + selectedName;
 
         //do callback to server
-        server.get(url);
+        server.get(url, renderHtml);
       });  
     }  
   }    
+}
+
+//render received html
+function renderHtml(html){
+  const parent = document.getElementById("results");
+  parent.innerHTML = html;
 }

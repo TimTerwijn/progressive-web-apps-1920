@@ -8,16 +8,29 @@ const router = express.Router();
 
 // chose a subject
 router.get('/', function(req, res) {
-	const subject = require("../modules/Subject.js");
-	const subjectNames = subject.getSubjectNames();
+	const subjectObject = require("../modules/Subject.js");
+	const subjectNames = subjectObject.getSubjectNames();
 	
 	res.render('game', {"results": subjectNames});
 });
 
-//user selected subject
-router.get('/:id', function(req, res) {
-	const id = req.params.id;
-	res.send("id: " + id);
+//user selected subject, show sub-subjects
+router.get('/:name', function(req, res) {
+	const name = req.params.name;
+
+	const subjectObject = require("../modules/Subject.js");
+	const subSubjects = subjectObject.getSubjectByName(name);
+	
+	let html = "";
+	subSubjects.value.forEach(subSubject => {
+		html += `
+				<section>
+					<p>${subSubject}</p>
+				</section>
+				`;
+	});
+	
+	res.send(html);
 });
 
 //user selected sub_subject

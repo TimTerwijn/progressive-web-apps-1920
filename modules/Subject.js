@@ -33,6 +33,18 @@ const subjects = [
 
 
 module.exports = {
+    getSubjectByName(name){
+        let subject;
+        
+        subjects.forEach(_subject => {
+            if(_subject.name === name){
+                subject = _subject;
+            }
+        });
+
+        return subject;
+    },
+
     getSubjectNames(){
         const subjectNames = [];
 
