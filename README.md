@@ -25,7 +25,7 @@ Example of a record:
 ![API](/static/img/API.PNG)
 
 ## How to use
-### Requirments
+### Requirements
 * Clone or download the repository $ git clone https://github.com/TimTerwijn/web-app-from-scratch-1920.git
 * Install live server plugin on VScode
 * Install Moesif Orign & CORS Changer plugin on chrome for development purposes (live server is http and node is https)
@@ -39,7 +39,7 @@ Example of a record:
 * Enable Moesif Orign & CORS Changer plugin in chrome
 * Open index.html with liveserver (right mouse button on index.html in live server)
 * Enjoy the game
-## Game
+### Game
 * Use the arrow buttons to move Marco.  
 * Press the up arrow to pick a subject, like animals.  
 * Then you will see animals instead of subject.  
@@ -49,7 +49,6 @@ Example of a record:
 * Then you will see the info of the book instead of the books.  
 
 ## Roadmap
-* Randomise all arrays
 * Make App Responsive
 * Marco jumps after event not before
 * Write arrow tutorial to move Marco. 
