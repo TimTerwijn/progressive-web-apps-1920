@@ -77,14 +77,12 @@ export async function playerJump(){
         //stop animation
         flipBox.classList.remove("marco-jump");
 
-        //get selected item name
+        //get selected element
         const resultsElement = document.getElementById("results");
         const selectedElement = resultsElement.children[1];
-        const selectedName = selectedElement.firstElementChild.innerText;
-        const url = "/subjects/" + selectedName;
-
-        //do callback to server
-        server.get(url, renderHtml);
+        
+        //perform click event
+        selectedElement.click();
       });  
     }  
   }    

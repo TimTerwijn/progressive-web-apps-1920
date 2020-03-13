@@ -39,7 +39,7 @@
 }
 
 /* subject box */
-#results>section{
+#results>a{
   font-size: 3rem;
   display: grid;
   text-align: center;
@@ -55,45 +55,40 @@
 }
 
 /* middle box */
-#results>section:nth-child(2){
+#results>a:nth-child(2){
   font-size: 4rem;
   width: 24rem;
   height: 10rem;
 }
 
 /* show only first 3 items */
-#results>section:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)){
+#results>a:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)){
   display: none;
 }
 
 /* text inside box */
-#results>section>p{
+#results>a>p{
   margin: 0;
   align-self: center;
 }
 
+
 /* images of books */
 #results>a{
-  display: grid;
+  /* display: grid;
   font-size: 3rem;
   width: 6rem;
   height: 8rem;
   padding: 1px;
   align-self: center;
-  justify-items: center;
+  justify-items: center; */
 }
 
 /* middel books */
 #results>a:nth-child(2){
-  font-size: 4rem;
+  /* font-size: 4rem;
   width: 7.5rem;
-  height: 10rem;
-}
-
-/* text inside box */
-#results>section>p{
-  margin: 0;
-  align-self: center;
+  height: 10rem; */
 }
 
 /* images of books */

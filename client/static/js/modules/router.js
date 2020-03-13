@@ -11,7 +11,9 @@ routie({
     },
     //user selected a subject, GET sub-subjects
     ":subjectName":(subjectName) => {
-        alert(subjectName);
+        //do post request to server and render result on screen
+        const url = `http://localhost:3000/${subjectName}`;
+        server.get(url, render.renderHtml);
     },
     //user selected a sub-subjects, GET all books of that subject
     "books/:subjectName": (subjectName) => {

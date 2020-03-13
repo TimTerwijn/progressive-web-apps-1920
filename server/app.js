@@ -17,10 +17,10 @@ app.get('/', function(req, res) {
   let html = "";  
   subjectNames.forEach(name => {
 		html += `
-				<section>
-					<p>${name}</p>
-				</section>
-				`;
+      <a href="#${name}"> 
+        <p>${name}</p>
+      </a>  
+			`;
 	});
   
   res.send(html);
@@ -28,18 +28,19 @@ app.get('/', function(req, res) {
 
 //user selected a subject, GET sub-subjects
 app.get('/:subjectName', function(req, res) {
-	const name = req.params.subjectName;
+  const subjectName = req.params.subjectName;
 
-	const subjectObject = require("../modules/Subject.js");
-	const subSubjects = subjectObject.getSubjectByName(name);
+	//get subjects
+  const subjectObject = require("./modules/Subject.js");
+  const subSubjects = subjectObject.getSubjectByName(subjectName);
 	
 	let html = "";
 	subSubjects.value.forEach(subSubject => {
 		html += `
-				<section>
-					<p>${subSubject}</p>
-				</section>
-				`;
+      <a href="#books/#${subSubject}"> 
+        <p>${subSubject}</p>
+      </a>  
+			`;
 	});
 	
 	res.send(html);
