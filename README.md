@@ -25,16 +25,28 @@ Example of a record:
 ![API](/static/img/API.PNG)
 
 ## How to use
-Clone or download the repository $ git clone https://github.com/TimTerwijn/web-app-from-scratch-1920.git  
-Put code on a server.  
-Go to index.html in your browser.  
-Use the arrow buttons to move Marco.  
-Press the up arrow to pick a subject, like animals.  
-Then you will see animals instead of subject.  
-Use the arrow buttons again to pick an animal, like dog.  
-Then you will see books of dogs instead of animals.  
-Use the arrow buttons again to pick a book.  
-Then you will see the info of the book instead of the books.  
+### Requirments
+* Clone or download the repository $ git clone https://github.com/TimTerwijn/web-app-from-scratch-1920.git
+* Install live server plugin on VScode
+* Install Moesif Orign & CORS Changer plugin on chrome for development purposes (live server is http and node is https)
+### Server
+* Open server folder with VSCode
+* Open terminal en enter npm install
+* Check port 3000 in app.js
+* Enter npm start in terminal
+### Client
+* Open another VScode screen and open the client folder
+* Enable Moesif Orign & CORS Changer plugin in chrome
+* Open index.html with liveserver (right mouse button on index.html in live server)
+* Enjoy the game
+## Game
+* Use the arrow buttons to move Marco.  
+* Press the up arrow to pick a subject, like animals.  
+* Then you will see animals instead of subject.  
+* Use the arrow buttons again to pick an animal, like dog.  
+* Then you will see books of dogs instead of animals.  
+* Use the arrow buttons again to pick a book.  
+* Then you will see the info of the book instead of the books.  
 
 ## Roadmap
 * Randomise all arrays
