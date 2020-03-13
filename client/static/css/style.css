@@ -100,6 +100,7 @@
   background-color: #fe3838;
   color: #ffd5d5;
   text-align: center;
+  text-shadow: 0 0;
 }
 
 #results > .no-img:nth-child(2){
