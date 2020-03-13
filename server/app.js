@@ -1,4 +1,5 @@
 const express = require('express');
+const fetch = require('node-fetch');
 const app = express();
 const port = 3000;
 
@@ -22,9 +23,55 @@ app.get('/books/:subSubjectName', function(req, res) {
   //get name
   const subSubjectName = req.params.subSubjectName;
 
-  //get books
-  const apiObject = require("./modules/Api.js");
-  apiObject.getData(subSubjectName);
+  //search books in api
+  //api info
+  const urlBase = "https://zoeken.oba.nl/api/v1/search/?q=";
+  const targetGroup = "&p=jeugd"
+  const authorization = "&authorization=1e19898c87464e239192c8bfe422f280";
+  const detail = "&detaillevel=Minimum"
+  const output = "&output=json";
+
+  const url = urlBase + subSubjectName + targetGroup + authorization + detail + output;
+
+  //do an api call
+  fetch(url)
+  .then(data => data.text())
+  .then(data => {
+      const books = JSON.parse(data.trim()).results
+
+      //make html
+      let html = "";
+      books.forEach(book => {
+        const badId1 = "842828168";
+        const badId2 = "297712861";
+        let imgId = null;
+        
+        //check if it is null for substring
+        if(book.coverimages[1] != null){
+          imgId = book.coverimages[1].substring(81, 90);
+        }
+        
+        //check if there is no image, or a bad images
+        if(book.coverimages[1] == null || imgId == badId1 || imgId == badId2){
+          html += `
+            <a class="no-img no-border" href="#books/book/${book.id}" data-id="${book.id}">
+              <p>${book.titles[0]}</p>
+            </a>
+          `;
+        }
+        else{
+          html += `
+            <a class="no-border" href="#books/book/${book.id}" data-id="${book.id}">
+              <img src="${
+                book.coverimages ? book.coverimages[1] : 'Geen samenvatting'
+              }">
+            </a>
+          `;
+        }
+      });
+      
+      res.send(html);
+  }) 
 });
 
 //user selected a subject, GET sub-subjects

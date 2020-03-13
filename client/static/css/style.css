@@ -74,21 +74,23 @@
 
 
 /* images of books */
-#results>a{
-  /* display: grid;
+#results > .no-border{
+  display: grid;
   font-size: 3rem;
   width: 6rem;
   height: 8rem;
   padding: 1px;
   align-self: center;
-  justify-items: center; */
+  justify-items: center;
+  border: 0;
+  background: initial;
 }
 
 /* middel books */
-#results>a:nth-child(2){
-  /* font-size: 4rem;
+#results > .no-border:nth-child(2){
+  font-size: 4rem;
   width: 7.5rem;
-  height: 10rem; */
+  height: 10rem;
 }
 
 /* images of books */
