@@ -15,8 +15,8 @@ router.get('/', function(req, res) {
 });
 
 //user selected subject, show sub-subjects
-router.get('/:name', function(req, res) {
-	const name = req.params.name;
+router.get('/:subjectName', function(req, res) {
+	const name = req.params.subjectName;
 
 	const subjectObject = require("../modules/Subject.js");
 	const subSubjects = subjectObject.getSubjectByName(name);

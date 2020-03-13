@@ -30,8 +30,6 @@ const subjects = [
     {"name" : "Stoer", "value" : stoer},
 ];
 
-
-
 module.exports = {
     getSubjectByName(name){
         let subject;

@@ -91,7 +91,7 @@ export async function playerJump(){
 }
 
 //render received html
-function renderHtml(html){
+export function renderHtml(html){
   const parent = document.getElementById("results");
   parent.innerHTML = html;
 }
