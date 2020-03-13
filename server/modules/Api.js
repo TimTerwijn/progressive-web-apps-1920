@@ -1,5 +1,8 @@
 
-
+const urlBase = "https://zoeken.oba.nl/api/v1/details/?id=";
+const authorization = "&authorization=1e19898c87464e239192c8bfe422f280";
+const detail = "&detaillevel=default"
+const output = "&output=json";
 
 
 async function fetchBookById(id){

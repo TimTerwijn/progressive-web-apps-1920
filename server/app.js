@@ -14,8 +14,64 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 
 
 //user selected a book, show bookdetails
-app.get('/books/book/:bookName', function(req, res) {
+app.get('/books/book/:bookId', function(req, res) {
+  //get name
+  const bookId = req.params.bookId;
 
+  //search books in api
+  //api info
+  const urlBase = "https://zoeken.oba.nl/api/v1/details/?id=";
+  const authorization = "&authorization=1e19898c87464e239192c8bfe422f280";
+  const detail = "&detaillevel=default"
+  const output = "&output=json";
+
+  const url = urlBase + bookId + authorization + detail + output;
+
+  //do an api call
+  fetch(url)
+  .then(data => data.text())
+  .then(data => {
+      const bookDetailsRecord = JSON.parse(data.trim()).record;
+
+      const bookDetails = [];
+
+      //check if titles exist
+      if(bookDetailsRecord.titles != null){
+        bookDetails.push({"name": "Titel", "value" : bookDetailsRecord.titles[0]});
+      }
+
+      //check if authors exist
+      if(bookDetailsRecord.authors != null){
+        bookDetails.push({"name": "Auteur", "value" : bookDetailsRecord.authors[0]});
+      }
+
+      //check if year  exist
+      if(bookDetailsRecord.year != null){
+        bookDetails.push({"name": "Uitgave", "value" : bookDetailsRecord.year});
+      }
+
+      //check if isbn exist
+      if(bookDetailsRecord.isbn != null){
+        bookDetails.push({"name": "ISBN", "value" : bookDetailsRecord.isbn[0]});
+      }
+
+      //check if languages exist
+      if(bookDetailsRecord.languages != null){
+        bookDetails.push({"name": "Taal", "value" : bookDetailsRecord.languages[0]});
+      }
+
+      //make book html
+      let html = "";
+      bookDetails.forEach(bookDetail => {
+        html += `
+          <div>
+            <p>${bookDetail.name + ": " + bookDetail.value}</p>
+          </div>
+        `;
+      });
+
+      res.send(html);
+    });
 });
 
 //user selected a sub-subjects, GET all books of that subject

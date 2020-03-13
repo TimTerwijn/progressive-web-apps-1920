@@ -4,15 +4,16 @@ import * as render from "./render.js";
 
 routie({
     //user selected a book, show bookdetails
-    "books/book/:bookName": (bookName) => {
-        alert(bookName)
+    "books/book/:bookId": (bookId) => {
+        //do post request to server and render result on screen
+        const url = `http://localhost:3000/books/book/${bookId}`;
+        server.get(url, render.renderHtml);
     },
 
     //user selected a sub-subjects, GET all books of that subject
     "books/:subjectName": (subjectName) => {
         //do post request to server and render result on screen
         const url = `http://localhost:3000/books/${subjectName}`;
-        console.log(subjectName);
         server.get(url, render.renderHtml);
     },
 
