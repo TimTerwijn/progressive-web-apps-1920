@@ -3,6 +3,12 @@ const fetch = require('node-fetch');
 const app = express();
 const port = 3000;
 
+// Tell the views engine/ejs where the template files are stored (Settingname, value)
+app.set('views', '../client');
+
+// Tell express to use a 'static' folder
+app.use(express.static('../client/static'));
+
 // Link the templating engine to the express app
 app.set('view engine', 'ejs');
 
@@ -70,7 +76,7 @@ app.get('/books/book/:bookId', function(req, res) {
         `;
       });
 
-      res.send(html);
+      res.render('index', {"html": html});
     });
 });
 
@@ -110,14 +116,14 @@ app.get('/books/:subSubjectName', function(req, res) {
         //check if there is no image, or a bad images
         if(book.coverimages[1] == null || imgId == badId1 || imgId == badId2){
           html += `
-            <a class="no-img no-border" href="#books/book/${book.id}" data-id="${book.id}">
+            <a class="no-img no-border" href="/books/book/${book.id}" data-id="${book.id}">
               <p>${book.titles[0]}</p>
             </a>
           `;
         }
         else{
           html += `
-            <a class="no-border" href="#books/book/${book.id}" data-id="${book.id}">
+            <a class="no-border" href="/books/book/${book.id}" data-id="${book.id}">
               <img src="${
                 book.coverimages ? book.coverimages[1] : 'Geen samenvatting'
               }">
@@ -126,7 +132,7 @@ app.get('/books/:subSubjectName', function(req, res) {
         }
       });
       
-      res.send(html);
+      res.render('index', {"html": html});
   }) 
 });
 
@@ -142,13 +148,13 @@ app.get('/:subjectName', function(req, res) {
 	let html = "";
 	subSubjects.value.forEach(subSubject => {
 		html += `
-      <a href="#books/${subSubject}"> 
+      <a href="/books/${subSubject}"> 
         <p>${subSubject}</p>
       </a>  
 			`;
 	});
 	
-	res.send(html);
+	res.render('index', {"html": html});
 });
 
 // GET all subjects.
@@ -160,13 +166,13 @@ app.get('/', function(req, res) {
   let html = "";  
   subjectNames.forEach(name => {
 		html += `
-      <a href="#${name}"> 
+      <a href="/${name}"> 
         <p>${name}</p>
       </a>  
 			`;
 	});
   
-  res.send(html);
+  res.render('index', {"html": html});
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

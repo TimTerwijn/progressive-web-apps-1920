@@ -1,5 +1,4 @@
 import * as vars from "./vars.js";
-import * as server from "./server.js";
 
 export function walkLeft(){
   const flipBox = document.getElementById("player-flip-box");  
@@ -86,10 +85,4 @@ export async function playerJump(){
       });  
     }  
   }    
-}
-
-//render received html
-export function renderHtml(html){
-  const parent = document.getElementById("results");
-  parent.innerHTML = html;
 }

@@ -1,7 +1,5 @@
 import {checkKey} from "./modules/controller.js";
-import * as router from "./modules/router.js";
 import * as render from "./modules/render.js";
-import * as server from "./modules/server.js";
 
 function init(){
   //get first data from server
