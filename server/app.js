@@ -141,11 +141,6 @@ app.get('/:subjectName', function(req, res) {
   //get name
   const subjectName = req.params.subjectName;
 
-  //fix favicon error
-  if(subjectName == "favicon.ico"){
-    return;
-  }
-
 	//get subjects
   const subjectObject = require("./modules/Subject.js");
   const subSubjects = subjectObject.getSubjectByName(subjectName);
