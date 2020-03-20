@@ -1,10 +1,20 @@
 # Marco's OBA Adventure
 
+# 3 important things
+## what makes me proud
+The backend server is up and running.
+
+## Where am I stuck
+I don't get Heroku to work because the server folder is not my real root folder.
+
+## How did I solve a problem
+The service worker was hard for me because it was new for me. But with the presentation of Declan I was able to fix it.
+
 # Autor
 Tim Terwijn
 
 ## Demo:
-I was not been able to get Heroku working.
+I was not able to get Heroku working.
 
 ## Description
 I can remember the days as a child when I was bored in the beginning of a project. I was always playing with my mouse on the monitor instead of the things I was supposed to do, that is why I decided to make this application to motivate children by make it easier and more fun for them to pick a subject for their project.
@@ -15,24 +25,16 @@ I can remember the days as a child when I was bored in the beginning of a projec
 ## Table of contents
 * [Install guide](#install-guide)
 * [How to use](#how-to-use)
-* [What API did I use](#what-api-did-I-use)
+* [What API did I use](#what-api-did-i-use)
 * [Roadmap](#roadmap)
 
 ## Install guide
 ### Requirements
 * Clone or download the repository $ git clone https://github.com/TimTerwijn/web-app-from-scratch-1920.git
-* Install live server plugin on VScode
-* Install Moesif Orign & CORS Changer plugin on chrome for development purposes (live server is http and node is https)
-### Server
-* Open server folder with VSCode
-* Open terminal en enter npm install
-* Check port 3000 in app.js
-* Enter npm start in terminal
-### Client
-* Open another VScode screen and open the client folder
-* Enable Moesif Orign & CORS Changer plugin in chrome
-* Open index.html with liveserver (right mouse button on index.html in live server)
-* Enjoy the game
+* Open server folder with VSCode.
+* Open terminal en enter npm install.
+* Enter npm start in terminal.
+* Go to http://localhost:3000/ to play the game.
 
 ## How to use
 * Use the arrow buttons to move Marco.  
@@ -49,7 +51,6 @@ I made use of the OBA Api, you can make 200 request an hour before you have to c
 
 Example of a record:  
 ![API](/client/static/img/API.PNG)
-
 
 ## Roadmap
 * Make App Responsive
