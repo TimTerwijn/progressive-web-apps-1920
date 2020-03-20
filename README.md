@@ -1,7 +1,7 @@
 # Marco's OBA Adventure
 
 # 3 important things
-## what makes me proud
+## What makes me proud
 The backend server is up and running.
 
 ## Where am I stuck
