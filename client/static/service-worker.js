@@ -24,6 +24,9 @@ self.addEventListener('install', function (event) {
   event.waitUntil(cache);
 });
 
+//per type opvangen, imagen niet, html in cache
+//proxy in server, inladenimg andere manier
+
 //inspired by https://stackoverflow.com/a/51948641
 self.addEventListener('fetch', function (event) {
   event.respondWith(

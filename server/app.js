@@ -1,5 +1,8 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const subjectObject = require("./modules/Subject.js");
+const htmlObject = require("./modules/Html.js");
+
 const app = express();
 const port = 3000;
 
@@ -82,6 +85,8 @@ app.get('/books/book/:bookId', function(req, res) {
 
 //user selected a sub-subjects, GET all books of that subject
 app.get('/books/:subSubjectName', function(req, res) {
+  res.write("<h1>Loading please wait...</h1>");
+  
   //get name
   const subSubjectName = req.params.subSubjectName;
 
@@ -132,7 +137,9 @@ app.get('/books/:subSubjectName', function(req, res) {
         }
       });
       
-      res.render('index', {"html": html});
+      // res.render('index', {"html": html});
+       res.send("<h1>Loading done</h1>");
+      //  res.end();
   }) 
 });
 
@@ -142,7 +149,6 @@ app.get('/:subjectName', function(req, res) {
   const subjectName = req.params.subjectName;
 
 	//get subjects
-  const subjectObject = require("./modules/Subject.js");
   const subSubjects = subjectObject.getSubjectByName(subjectName);
 	
 	let html = "";
@@ -159,7 +165,12 @@ app.get('/:subjectName', function(req, res) {
 
 // GET all subjects.
 app.get('/', function(req, res) {
-  //get subjects
+  //first show user some html response
+  res.write(htmlObject.printHtmlOpen());
+  res.write(htmlObject.printHead());
+  res.write(htmlObject.printBodyOpen());
+
+  //get results
   const subjectObject = require("./modules/Subject.js");
   const subjectNames = subjectObject.getSubjectNames();
   
@@ -170,9 +181,17 @@ app.get('/', function(req, res) {
         <p>${name}</p>
       </a>  
 			`;
-	});
+  });
   
-  res.render('index', {"html": html});
+  // show user results
+  res.write(htmlObject.printResults(html));
+
+  //close the html file correctly
+  res.write(htmlObject.printBodyClose());
+  res.write(htmlObject.printHtmlClose());
+
+  //close response
+  res.end();
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
