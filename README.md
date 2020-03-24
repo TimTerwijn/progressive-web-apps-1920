@@ -51,6 +51,20 @@ I made use of the OBA Api, you can make 200 request an hour before you have to c
 Example of a record:  
 ![API](/client/static/img/API.PNG)
 
+### Critical Rendering Path
+
+The first improvement that I made was implementing progressive rendering. This way the page was loaded in this order:  
+1. The doctype + HTML
+2. The header combined with the css
+3. The body with everything exept for the results and the clientside javascript
+4. The clientside javascript because the results can take awhile to load, especially images.
+![API](/docs/img/progressive rendering2.png)
+5. The results.
+6. Finally close the grid, body and HTML.  
+
+You can see that this gave me a loading speed boost in the image below, because the HTML, CSS and JS files don't have to render  after the results are shown anymore.  
+![API](/docs/img/progressive rendering.png)
+
 ### Roadmap
 * Make App Responsive
 * Marco jumps after event not before
