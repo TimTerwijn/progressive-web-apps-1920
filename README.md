@@ -57,13 +57,13 @@ The first improvement that I made was implementing progressive rendering. This w
 1. The doctype + HTML
 2. The header combined with the css
 3. The body with everything exept for the results and the clientside javascript
-4. The clientside javascript because the results can take awhile to load, especially images.
-![API](/docs/img/progressive rendering2.png)
+4. The clientside javascript because the results can take awhile to load, especially images.  
+![progressive rendering2](/docs/img/progressive-rendering2.png)
 5. The results.
 6. Finally close the grid, body and HTML.  
 
-You can see that this gave me a loading speed boost in the image below, because the HTML, CSS and JS files don't have to render  after the results are shown anymore.  
-![API](/docs/img/progressive rendering.png)
+You can see that this gave me a loading speed boost in the image below, because the HTML, CSS and JS files are rendering during the time the server is looking for the results.  
+![progressive rendering](/docs/img/progressive-rendering.png)
 
 ### Roadmap
 * Make App Responsive
