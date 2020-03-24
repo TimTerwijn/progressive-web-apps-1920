@@ -24,12 +24,16 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 
 //user selected a book, show bookdetails
 app.get('/books/book/:bookId', function(req, res) {
-  //get name
-  const bookId = req.params.bookId;
+  //first show user some html response
+  res.write(htmlObject.printHtmlOpen());
+  res.write(htmlObject.printHead());
+  res.write(htmlObject.printBodyOpen());
 
   //search books in api
+  
   //api info
   const urlBase = "https://zoeken.oba.nl/api/v1/details/?id=";
+  const bookId = req.params.bookId;
   const authorization = "&authorization=1e19898c87464e239192c8bfe422f280";
   const detail = "&detaillevel=default"
   const output = "&output=json";
@@ -79,13 +83,24 @@ app.get('/books/book/:bookId', function(req, res) {
         `;
       });
 
-      res.render('index', {"html": html});
+      // show user results
+      res.write(htmlObject.printResults(html));
+
+      //close the html file correctly
+      res.write(htmlObject.printBodyClose());
+      res.write(htmlObject.printHtmlClose());
+
+      //close response
+      res.end();
     });
 });
 
 //user selected a sub-subjects, GET all books of that subject
 app.get('/books/:subSubjectName', function(req, res) {
-  res.write("<h1>Loading please wait...</h1>");
+  //first show user some html response
+  res.write(htmlObject.printHtmlOpen());
+  res.write(htmlObject.printHead());
+  res.write(htmlObject.printBodyOpen());
   
   //get name
   const subSubjectName = req.params.subSubjectName;
@@ -137,14 +152,25 @@ app.get('/books/:subSubjectName', function(req, res) {
         }
       });
       
-      // res.render('index', {"html": html});
-       res.send("<h1>Loading done</h1>");
-      //  res.end();
+      // show user results
+      res.write(htmlObject.printResults(html));
+
+      //close the html file correctly
+      res.write(htmlObject.printBodyClose());
+      res.write(htmlObject.printHtmlClose());
+
+      //close response
+      res.end();
   }) 
 });
 
 //user selected a subject, GET sub-subjects
 app.get('/:subjectName', function(req, res) {
+  //first show user some html response
+  res.write(htmlObject.printHtmlOpen());
+  res.write(htmlObject.printHead());
+  res.write(htmlObject.printBodyOpen());
+  
   //get name
   const subjectName = req.params.subjectName;
 
@@ -160,7 +186,15 @@ app.get('/:subjectName', function(req, res) {
 			`;
 	});
 	
-	res.render('index', {"html": html});
+	// show user results
+  res.write(htmlObject.printResults(html));
+
+  //close the html file correctly
+  res.write(htmlObject.printBodyClose());
+  res.write(htmlObject.printHtmlClose());
+
+  //close response
+  res.end();
 });
 
 // GET all subjects.
