@@ -62,7 +62,7 @@ The first improvement that I made was implementing progressive rendering. This w
 5. The results.
 6. Finally close the grid, body and HTML.  
 
-You can see that this gave me a loading speed boost in the image below, because the HTML, CSS and JS files don't have to render  after the results are shown anymore.  
+You can see that this gave me a loading speed boost in the image below, because the HTML, CSS and JS files are rendering during the time the server is looking for the results.  
 ![progressive rendering](/docs/img/progressive-rendering.png)
 
 ### Roadmap
