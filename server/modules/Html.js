@@ -36,6 +36,7 @@ function printBodyOpen(){
                     <div id="messages">
 
                     </div>
+                    <script type="module" src="/js/app.js"></script>
     `;
 }
 
@@ -56,7 +57,6 @@ function printBodyClose(){
     return `
                 </div>
             </div>
-            <script type="module" src="/js/app.js"></script>
         </body>
     `;
 }
