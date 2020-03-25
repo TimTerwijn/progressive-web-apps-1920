@@ -40,19 +40,18 @@ function printBodyOpen(){
     `;
 }
 
-function printResults(htmlResults){
-    let openResults = `
+function printResultsOpen(){
+    return `
         <div id="results" class="grid">
-            <!--add data here-->
+            <!--here comes the server data-->
     `;
-
-    let closeResults = `
-        </div>
-    `;
-
-    return openResults + htmlResults + closeResults;
 }
 
+function printResultsClose(){
+    return `
+        </div>
+    `;
+}
 function printBodyClose(){
     return `
                 </div>
@@ -71,7 +70,8 @@ module.exports = {
     printHtmlOpen,
     printHead,
     printBodyOpen,
-    printResults,
+    printResultsOpen,
+    printResultsClose,
     printBodyClose,
     printHtmlClose
 }

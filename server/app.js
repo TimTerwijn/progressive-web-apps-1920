@@ -73,20 +73,23 @@ app.get('/books/book/:bookId', function(req, res) {
         bookDetails.push({"name": "Taal", "value" : bookDetailsRecord.languages[0]});
       }
 
+      //show user the result div
+      res.write(htmlObject.printResultsOpen());
+
       //make book html
-      let html = "";
       bookDetails.forEach(bookDetail => {
-        html += `
+        const result = `
           <div>
             <p>${bookDetail.name + ": " + bookDetail.value}</p>
           </div>
         `;
-      });
 
-      // show user results
-      res.write(htmlObject.printResults(html));
+        // show user results
+        res.write(result);
+      });      
 
       //close the html file correctly
+      res.write(htmlObject.printResultsClose());
       res.write(htmlObject.printBodyClose());
       res.write(htmlObject.printHtmlClose());
 
@@ -121,8 +124,11 @@ app.get('/books/:subSubjectName', function(req, res) {
   .then(data => {
       const books = JSON.parse(data.trim()).results
 
+      //show user the result div
+      res.write(htmlObject.printResultsOpen());
+
       //make html
-      let html = "";
+      let result;
       books.forEach(book => {
         const badId1 = "842828168";
         const badId2 = "297712861";
@@ -135,14 +141,14 @@ app.get('/books/:subSubjectName', function(req, res) {
         
         //check if there is no image, or a bad images
         if(book.coverimages[1] == null || imgId == badId1 || imgId == badId2){
-          html += `
+          result = `
             <a class="no-img no-border" href="/books/book/${book.id}" data-id="${book.id}">
               <p>${book.titles[0]}</p>
             </a>
           `;
         }
         else{
-          html += `
+          result = `
             <a class="no-border" href="/books/book/${book.id}" data-id="${book.id}">
               <img src="${
                 book.coverimages ? book.coverimages[1] : 'Geen samenvatting'
@@ -150,12 +156,15 @@ app.get('/books/:subSubjectName', function(req, res) {
             </a>
           `;
         }
+
+        // show user results
+        res.write(result);
       });
       
-      // show user results
-      res.write(htmlObject.printResults(html));
+      
 
       //close the html file correctly
+      res.write(htmlObject.printResultsClose());
       res.write(htmlObject.printBodyClose());
       res.write(htmlObject.printHtmlClose());
 
@@ -176,20 +185,23 @@ app.get('/:subjectName', function(req, res) {
 
 	//get subjects
   const subSubjects = subjectObject.getSubjectByName(subjectName);
-	
-	let html = "";
+  
+  //show user the result div
+  res.write(htmlObject.printResultsOpen());
+
 	subSubjects.value.forEach(subSubject => {
-		html += `
+		const result = `
       <a href="/books/${subSubject}"> 
         <p>${subSubject}</p>
       </a>  
-			`;
+      `;
+      
+    // show user results
+    res.write(result);
 	});
-	
-	// show user results
-  res.write(htmlObject.printResults(html));
 
   //close the html file correctly
+  res.write(htmlObject.printResultsClose());
   res.write(htmlObject.printBodyClose());
   res.write(htmlObject.printHtmlClose());
 
@@ -208,19 +220,24 @@ app.get('/', function(req, res) {
   const subjectObject = require("./modules/Subject.js");
   const subjectNames = subjectObject.getSubjectNames();
   
-  let html = "";  
+  //show user the result div
+  res.write(htmlObject.printResultsOpen());
+ 
   subjectNames.forEach(name => {
-		html += `
+		const result = `
       <a href="/${name}"> 
         <p>${name}</p>
       </a>  
-			`;
+      `;
+
+    // show user results
+    res.write(result);
   });
   
-  // show user results
-  res.write(htmlObject.printResults(html));
+  
 
   //close the html file correctly
+  res.write(htmlObject.printResultsClose());
   res.write(htmlObject.printBodyClose());
   res.write(htmlObject.printHtmlClose());
 
