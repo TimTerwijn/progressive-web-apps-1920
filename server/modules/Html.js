@@ -61,7 +61,7 @@ function printCriticalCss(){
 
 function printCss(){
     return `
-                <link rel="stylesheet" href="/css/style.css">
+                <link rel="stylesheet" href="/css/style.min.css">
     `;
 }
 

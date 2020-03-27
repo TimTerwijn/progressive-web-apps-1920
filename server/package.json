@@ -5,6 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "minify-css": "postcss css/style.css > ../client/static/css/style.min.css",
     "start": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,10 +22,12 @@
   "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "request": "^2.88.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "cssnano": "^4.1.10",
+    "nodemon": "^2.0.2",
+    "postcss-cli": "^7.1.0"
   }
 }
