@@ -26,7 +26,10 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 app.get('/books/book/:bookId', function(req, res) {
   //first show user some html response
   res.write(htmlObject.printHtmlOpen());
-  res.write(htmlObject.printHead());
+  res.write(htmlObject.printHeadOpen());
+  res.write(htmlObject.printCriticalCss());
+  res.write(htmlObject.printCss());
+  res.write(htmlObject.printHeadClose())
   res.write(htmlObject.printBodyOpen());
 
   //search books in api
@@ -102,7 +105,10 @@ app.get('/books/book/:bookId', function(req, res) {
 app.get('/books/:subSubjectName', function(req, res) {
   //first show user some html response
   res.write(htmlObject.printHtmlOpen());
-  res.write(htmlObject.printHead());
+  res.write(htmlObject.printHeadOpen());
+  res.write(htmlObject.printCriticalCss());
+  res.write(htmlObject.printCss());
+  res.write(htmlObject.printHeadClose())
   res.write(htmlObject.printBodyOpen());
   
   //get name
@@ -177,7 +183,10 @@ app.get('/books/:subSubjectName', function(req, res) {
 app.get('/:subjectName', function(req, res) {
   //first show user some html response
   res.write(htmlObject.printHtmlOpen());
-  res.write(htmlObject.printHead());
+  res.write(htmlObject.printHeadOpen());
+  res.write(htmlObject.printCriticalCss());
+  res.write(htmlObject.printCss());
+  res.write(htmlObject.printHeadClose())
   res.write(htmlObject.printBodyOpen());
   
   //get name
@@ -213,7 +222,10 @@ app.get('/:subjectName', function(req, res) {
 app.get('/', function(req, res) {
   //first show user some html response
   res.write(htmlObject.printHtmlOpen());
-  res.write(htmlObject.printHead());
+  res.write(htmlObject.printHeadOpen());
+  res.write(htmlObject.printCriticalCss());
+  res.write(htmlObject.printCss());
+  res.write(htmlObject.printHeadClose())
   res.write(htmlObject.printBodyOpen());
 
   //get results

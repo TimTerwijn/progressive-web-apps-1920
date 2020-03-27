@@ -1,37 +1,3 @@
-.grid{
-  display: grid;
-  justify-items: center;
-  font-family: sans-serif;
-}
-
-.grid>div{
-  min-height: 5rem;
-}
-
-.hidden{
-  display: none;
-}
-
-.letter{
-  margin: 0;
-}
-
-#search_page{
-  background-color: #99b1dd;
-  padding-top: 1rem;
-}
-
-#background{
-  border-bottom: 1rem solid green;
-  width: 100%;
-  margin-top: 5rem;
-}
-
-#player{
-  height: 5rem;
-  width: 5rem;
-}
-
 #results{
   grid-template-columns: 33% auto 33%;
   justify-content: space-between;
@@ -142,12 +108,6 @@
 #results>div>p{
   margin: 0;
   align-self: center;
-}
-
-#messages{
-  width: 100%;
-  text-align: left;
-  background-color: white;
 }
 
 /* Animations */
