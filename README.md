@@ -17,7 +17,7 @@ I can remember the days as a child when I was bored in the beginning of a projec
 * [How to use](#how-to-use)
 * [What API did I use](#what-api-did-i-use)
 * [Client side vs Server side](#client-side-vs-server-side)
-* [Service Worker](#service worker)
+* [Service Worker](#service-worker)
 * [Critical render path](#critical-render-path)
 * [Roadmap](#roadmap)
 
