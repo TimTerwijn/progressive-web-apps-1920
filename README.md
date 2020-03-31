@@ -69,6 +69,8 @@ I also made some other smaller improvements, here you can see all the improvemen
 ![progressive rendering](/docs/img/progressive-rendering-all.png)
 
 ### Roadmap
-* Make App Responsive
-* Marco jumps after event not before
+* Make App Responsive.
+* Marco jumps after event not before.
 * Write arrow tutorial to move Marco. 
+* Improve service worker so that it does not save images.
+* Proxy in server, loding images another way. 
